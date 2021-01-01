@@ -1,0 +1,30 @@
+{% extends 'layout.html' %} {% block title %}My Page{% endblock %} {% block head
+%} {% parent %}
+<link rel="stylesheet" href="public/stylesheets/style.css" />
+{% endblock %} {% block content %}
+<p>This is just an awesome page.{{title}}</p>
+
+<ul id="messages"></ul>
+<form action=""><input id="m" autocomplete="off" /><button>Send</button></form>
+
+<script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+  $(function () {
+    var socket = io.connect();
+
+    $("form").submit(function (e) {
+      e.preventDefault(); // prevents page reloading
+      socket.emit("chat message", $("#m").val());
+      $("#m").val("");
+      return false;
+    });
+
+    socket.on("chat message", function (msg) {
+      var element = document.createElement("LI");
+      element.textContent = msg;
+      document.getElementById("messages").appendChild(element);
+    });
+  });
+</script>
+{% endblock %} socket.io.js
