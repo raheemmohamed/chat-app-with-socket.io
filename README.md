@@ -19,6 +19,12 @@ nodemon is a tool that helps develop node.js based applications by automatically
 
 [click here for documentation](https://nodemon.io/)
 
+# Databse connection establish with - MYSQL
+
+This is a node.js driver for mysql. It is written in JavaScript.
+
+[click here for documentation](https://github.com/mysqljs/mysql)
+
 # Validators Used In
 
 For this development we using below middlewares such as:-
