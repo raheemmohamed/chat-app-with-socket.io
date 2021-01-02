@@ -25,6 +25,10 @@
       element.textContent = msg;
       document.getElementById("messages").appendChild(element);
     });
+
+    socket.on("connect", () => {
+      console.log("socket id client side index.html", socket.id);
+    });
   });
 </script>
 {% endblock %} socket.io.js
